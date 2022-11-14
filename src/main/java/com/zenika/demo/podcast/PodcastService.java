@@ -18,7 +18,7 @@ public class PodcastService {
     public void orchestrate(Podcast podcast) {
         PodcastEpisode latestEpisode = podcastFetcher.get(podcast);
         PodcastEpisode existingEpisode = podcastRepository.get(podcast);
-        if(latestEpisode.isNewerThan(existingEpisode)) {
+        if (latestEpisode.isNewerThan(existingEpisode)) {
             podcastRepository.addLatestEpisode(latestEpisode);
             notifier.notifyNewEpisode(latestEpisode);
         }
